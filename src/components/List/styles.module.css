@@ -1,0 +1,22 @@
+.formControl {
+    margin: 30px 10px;
+}
+.selectEmpty {
+    margin-top: 20px;
+}
+.loading {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    padding: 25px;
+}
+.marginBottom {
+    margin-bottom: 30px;
+}
+.list {
+    height: 75vh;
+    overflow: auto;
+}
