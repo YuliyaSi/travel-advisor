@@ -10,31 +10,20 @@ import { getPlacesData } from "./api/index"
 const App = () => {
     const theme = createTheme();
 
-    const [places, setPlaces] = useState([])
     const [coordinates, setCoordinates] = useState({});
     const [bounds, setBounds] = useState({})
+    const [places, setPlaces] = useState([])
+
 
     useEffect(() => {
       navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude} }) => {
           setCoordinates({lat: latitude, lng: longitude});
-          // setBounds({
-          //     sw: {
-          //         lat: latitude,
-          //         lng: longitude,
-          //     },
-          //     ne: {
-          //         lat: latitude,
-          //         lng: longitude,
-          //     }
-          // })
-      })
+      });
     }, []);
 
     useEffect(() => {
         getPlacesData(bounds.sw, bounds.ne)
-            .then((data) => {
-            setPlaces(data)
-        } )
+            .then( data => setPlaces(data) )
     }, [coordinates, bounds])
 
   return (

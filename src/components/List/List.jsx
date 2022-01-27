@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select} from "@mui/material";
 import classes from "./styles.module.css"
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
+
 
 const List = ({places}) => {
 
