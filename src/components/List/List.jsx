@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select} from "@mui/material";
 import classes from "./styles.module.css"
+import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
-const List = () => {
+const List = ({places}) => {
 
     const [type, setType] = useState('restaurants');
     const [rating, setRating] = useState('');
@@ -27,6 +28,13 @@ const List = () => {
                     <MenuItem value={4.5}>Above 4.5</MenuItem>
                 </Select>
             </FormControl>
+            <Grid container spacing={3} className={classes.list}>
+                {places.map((place, i) => (
+                    <Grid item key={i} xs={12} >
+                        <PlaceDetails place={place}/>
+                    </Grid>
+                ))}
+            </Grid>
         </div>
     )
 };
