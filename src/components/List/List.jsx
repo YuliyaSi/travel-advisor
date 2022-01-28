@@ -4,16 +4,14 @@ import classes from "./styles.module.css"
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
 
-const List = ({places, childClicked, isLoading}) => {
+const List = ({places, childClicked, isLoading, type, rating, setType, setRating}) => {
 
-    const [type, setType] = useState('');
-    const [rating, setRating] = useState('');
     const [elRefs, setElRefs] = useState([])
 
     useEffect(() => {
         const refs = Array(places?.length).fill(0).map((_, i) => elRefs[i] || createRef());
         setElRefs(refs);
-    }, [places, elRefs])
+    }, [places])
 
     return (
         <div className={classes.container}>
